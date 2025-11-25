@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo - Elisio Luis Ribe</title>
+<style>
+  
+  :root {
+    --primary: #053e42;       
+    --primary-light: #5ad2ec;  
+    --accent: #64b5f6;        
+    --text-light: #f0f4f8;     
+    --text-dark: #cfd8dc;     
+    --bg-dark: #0b1b33;        
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgb(116, 189, 218);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(145deg, #25b9ad, #668fa0 50%, #0c2040 100%);
+    color: var(--text-light);
+  }
+
+  .cv-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 85%;
+    margin: 40px auto;
+    background: var(--glass);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 0 30px rgba(13,71,161,0.25), inset 0 0 20px rgba(25,118,210,0.15);
+  }
+
+  aside {
+    background: rgba(11,27,51,0.95);
+    color: var(--text-light);
+    padding: 35px 25px;
+    border-radius: 20px 0 0 20px;
+  }
+
+  aside img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px;
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 0 20px rgba(25,118,210,0.5);
+    transition: transform 0.5s, box-shadow 0.5s;
+  }
+  aside img:hover {
+    transform: scale(1.1) rotateY(10deg);
+    box-shadow: 0 0 40px rgba(25,118,210,0.8);
+  }
+
+  h1, h2, h3 {
+    color: var(--primary-light);
+    weight: 60;
+    font-size: 30px;
+    height: 20px;
+    margin: 12px 0;
+    text-shadow: 0 0 10px rgba(25,118,210,0.4);
+  }
+
+  .titulo {
+    color: var(--accent);
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 25px;
+  }
+
+  .contato ul, .habilidades ul, .idiomas ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .contato img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  .contato li, .habilidades li, .idiomas li {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .contato li:hover, .habilidades li:hover, .idiomas li:hover {
+    transform: translateX(6px);
+    background: rgba(25,118,210,0.1);
+    border-left: 3px solid var(--primary-light);
+  }
+
+  .habilidades .barra {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .habilidades .nivel {
+    height: 8px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    box-shadow: 0 0 12px rgba(25,118,210,0.4);
+    transition: width 1.5s ease-in-out;
+  }
+
+  main {
+    padding: 40px;
+  }
+  main section {
+    margin-bottom: 35px;
+    position: relative;
+  }
+  main section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-light);
+    animation: underlineGrow 3s infinite alternate;
+  }
+  @keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .exp-item, .sobre, .educacao, .idiomas {
+    background: rgba(255,255,255,0.03);
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  .exp-item:hover, .sobre:hover, .educacao:hover, .idiomas:hover {
+    transform: translateX(10px);
+    background: rgba(25,118,210,0.08);
+    border-left: 3px solid var(--primary-light);
+  }
+
+  @media (max-width: 900px) {
+    .cv-container { grid-template-columns: 1fr; }
+    aside { border-radius: 20px 20px 0 0; text-align: center; }
+    main { padding: 25px; }
+  }
+</style>
+</head>
+<body>
+<div class="cv-container">
+  <aside class="perfil">
+    <img src="/img/Gemini_Generated_Image_7gmtx07gmtx07gmt.jpg" alt="Foto de Perfil">
+    <h1>Elisio Luis Ribe</h1>
+    <p class="titulo">Técnico de Suporte Informático</p>
+    <div class="contato">
+      <h2>Contactos</h2>
+      <ul>
+        <li>☎ +258 857765687</li>
+        <li>☎+258 835356521</li>
+        <li>☎+258 875043109</li>
+        <li>☎ +258 847547003</li>
+      </ul>
+      <h2>Email</h2>
+      <br>
+      <ul><li><img src="/img/ChatGPT Image Nov 15, 2025, 05_19_59 PM.jpg" alt=""> elisioluisribe8577@gmail.com</li></ul>
+      <h2>Endereço</h2>
+      <ul>
+        <li> Quarteirão Q-44 Casa 94</li>
+        <li> Bairro: Khongolote</li>
+        <li> Cidade: Matola</li>
+      </ul>
+    </div>
+    <div class="habilidades">
+      <h2>Competências</h2>
+      <ul>
+        <li><span>Técnico de Suporte Informático</span><div class="barra"><div class="nivel" style="width:90%"></div></div></li>
+        <li><span>Técnico de Redes</span><div class="barra"><div class="nivel" style="width:85%"></div></div></li>
+        <li><span>Desenvolvedor Web</span><div class="barra"><div class="nivel" style="width:80%"></div></div></li>
+        <li><span>HTML / CSS</span><div class="barra"><div class="nivel" style="width:90%"></div></div></li>
+        <li><span>Gestão de Sistemas</span><div class="barra"><div class="nivel" style="width:75%"></div></div></li>
+      </ul>
+    </div>
+  </aside>
+  <main class="conteudo">
+    <section class="sobre">
+      <h2>Perfil Profissional</h2>
+      <p>Sou um profissional dedicado, criativo e comprometido com a excelência tecnológica. Tenho experiência na manutenção e suporte de sistemas informáticos, configuração de redes e desenvolvimento web. Busco sempre aprender novas habilidades e contribuir com soluções inovadoras.</p>
+    </section>
+    <section class="experiencia">
+      <h2>Experiência Profissional</h2>
+      <div class="exp-item">
+        <h3>Técnico de Suporte Informático</h3>
+        <p class="empresa">ITC - Instituto de Transportes e Comunicações | 2024 - Presente</p>
+        <ul>
+          <li>Manutenção de computadores e redes locais.</li>
+          <li>Instalação e configuração de softwares e sistemas operativos.</li>
+          <li>Diagnóstico e resolução de problemas técnicos.</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <h3>Técnico de Redes</h3>
+        <p class="empresa">Projetos Acadêmicos | 2023 - 2024</p>
+        <ul>
+          <li>Configuração de routers e switches.</li>
+          <li>Monitoramento de segurança e desempenho da rede.</li>
+          <li>Criação de topologias e documentação técnica.</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <h3>Desenvolvedor Web</h3>
+        <p class="empresa">Projetos Pessoais | 2023 - Presente</p>
+        <ul>
+          <li>Criação de websites responsivos.</li>
+          <li>Design moderno com HTML, CSS e JavaScript.</li>
+          <li>Hospedagem, manutenção e otimização de desempenho.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="educacao">
+      <h2>Formação Acadêmica</h2>
+      <p><strong>ITC – Instituto de Transportes e Comunicações</strong><br>Técnico de Suporte Informático — Em formação</p>
+    </section>
+    <section class="idiomas">
+      <h2>Idiomas</h2>
+      <ul>
+        <li>Português — Nativo</li>
+        <li>Inglês — Básico</li>
+      </ul>
+    </section>
+  </main>
+</div>
+</body>
+</html>
