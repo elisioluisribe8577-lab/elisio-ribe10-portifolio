@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Elisio Luis Ribe</title>
+
+  <style>
+    :root{
+      --neon: rgb(63, 214, 58);
+      --bg1: rgb(0, 19, 18);
+      --bg2: rgb(0,0,0);
+      --bg3: rgb(0,0,0);
+      --bg4: rgb(3,2,24);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background: linear-gradient(var(--bg1), var(--bg2), var(--bg2), var(--bg1));
+      color:white;
+      padding:110px 10px 10px;
+      scroll-behavior:smooth;
+    }
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      z-index:1000;
+      pointer-events:auto;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      padding:12px 20px;
+      background:rgba(255,255,255,0.05);
+      border-radius:50px;
+      backdrop-filter:blur(6px);
+      width:95%;
+      max-width:1100px;
+      border:1px solid rgba(63,214,58,0.4);
+      position:relative;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-weight:600;
+      padding:8px 15px;
+      transition:0.3s;
+      border-radius:8px;
+      display:inline-block;
+    }
+
+    nav a:hover{
+      background:var(--neon);
+      color:black;
+    }
+
+    .cabecalho{
+      text-align:center;
+    }
+
+    .foto-container{
+      position:relative;
+      display:inline-block;
+    }
+
+    .foto{
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      object-fit:cover;
+      position:relative;
+      z-index:2;
+      box-shadow:0 0 25px rgba(63,214,58,0.6);
+    }
+
+    .anel{
+      position:absolute;
+      top:-12px;
+      left:-12px;
+      width:225px;
+      height:225px;
+      border-radius:50%;
+      border:3px solid var(--neon);
+      animation:spin 4s linear infinite;
+      box-shadow:0 0 20px var(--neon);
+    }
+
+    @keyframes spin{
+      100% { transform:rotate(360deg); }
+    }
+
+    h1{
+      margin-top:15px;
+      font-size:2em;
+    }
+
+    .subtitulo{
+      font-size:1.2em;
+      color:var(--neon);
+      font-family:monospace;
+      border-right:2px solid var(--neon);
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation:typing 3s steps(30) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing{ to{ width:100%; } }
+    @keyframes blink{ 50%{ border-color:transparent; } }
+
+    section, main{
+      max-width:800px;
+      margin:50px auto;
+      text-align:center;
+      scroll-margin-top:110px;
+    }
+
+    h2{
+      color:var(--neon);
+      margin-bottom:15px;
+      text-shadow:0 0 10px var(--neon);
+    }
+
+    .carousel-container{
+      width:90%;
+      margin:auto;
+      overflow:hidden;
+      border-radius:20px;
+      background:rgba(0,0,0,0.3);
+      box-shadow:0 0 25px rgba(63,214,58,0.3);
+    }
+
+    .carousel-track{
+      display:flex;
+      gap:15px;
+      padding:15px;
+      animation:scroll 5s linear infinite;
+    }
+
+    @keyframes scroll{
+      0% { transform:translateX(0); }
+      100% { transform:translateX(-50%); }
+    }
+
+    .foto-card{
+      min-width:260px;
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .foto-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .legenda{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:10px;
+      text-align:center;
+      background:rgba(0,0,0,0.5);
+      color:var(--neon);
+      font-weight:600;
+      opacity:0;
+      transition:0.4s;
+    }
+
+    .foto-card:hover .legenda{
+      opacity:1;
+    }
+
+    video{
+      width:90%;
+      max-width:600px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(63,214,58,0.3);
+    }
+
+    .redes-sociais{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:20px;
+    }
+
+    .icon-img{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      object-fit:cover;
+      box-shadow:0 0 12px rgba(63,214,58,0.4);
+      transition:0.3s;
+    }
+
+    .icon-img:hover{
+      transform:scale(1.2);
+      box-shadow:0 0 20px var(--neon);
+    }
+
+    .menu-btn{
+      display:none;
+      color:var(--neon);
+      font-size:35px;
+      position:fixed;
+      right:20px;
+      top:15px;
+      z-index:2000;
+      cursor:pointer;
+    }
+
+    @media(max-width:768px){
+      .menu-btn{ display:block; }
+      nav ul{
+        flex-direction:column;
+        gap:15px;
+        width:200px;
+        position:fixed;
+        right:20px;
+        top:80px;
+        opacity:0;
+        transform:translateY(-20px);
+        pointer-events:none;
+        transition:0.3s ease;
+      }
+      nav ul.open{
+        opacity:1;
+        transform:translateY(0);
+        pointer-events:auto;
+      }
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      margin-top:50px;
+      background:rgba(0,0,0,0.4);
+      border-top:1px solid rgba(63,214,58,0.4);
+      color:var(--neon);
+    }
+
+    /* BOTÃO DE CV MODERNO NEON */
+    .btn-cv{
+      display:inline-block;
+      padding:12px 35px;
+      margin-top:15px;
+      font-size:19px;
+      font-weight:700;
+      color:black;
+      background:var(--neon);
+      border-radius:50px;
+      text-decoration:none;
+      transition:0.3s ease;
+      box-shadow:0 0 15px var(--neon);
+    }
+
+    .btn-cv:hover{
+      transform:scale(1.1);
+      box-shadow:0 0 25px var(--neon), 0 0 50px var(--neon);
+      background:white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<i class="fa-solid fa-bars menu-btn"></i>
+
+<nav>
+  <ul class="menu">
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre Mim</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#midia">Mídia</a></li>
+    <li><a href="Curiculo.htm">CV</a></li>
+    <li><a href="#contactos">Contactos</a></li>
+  </ul>
+</nav>
+
+<header id="inicio" class="cabecalho">
+  <div class="foto-container">
+    <div class="anel"></div>
+    <img src="img/Gemini_Generated_Image_rz2vxerz2vxerz2v (1).jpg" class="foto" alt="Foto de Elisio">
+  </div>
+  <br><br>
+  <h1>Olá! Eu sou <strong>Elisio Luis Ribe</strong></h1>
+  <br>
+  <p class="subtitulo">Futuro desenvolvedor de Software</p>
+</header>
+
+<main id="sobre">
+  <h2>Sobre Mim</h2>
+  <p>
+    Tenho <strong>20 anos</strong> e sou estudante do 
+    <strong>ITC - Instituto de Transportes e Comunicações</strong>.
+    Estou me formando como <strong>Técnico de Suporte Informático</strong>  
+    e pretendo me tornar um <strong>Desenvolvedor de Software</strong>.
+  </p>
+</main>
+
+<section id="galeria">
+  <h2>Galeria</h2>
+  <div class="carousel-container">
+    <div class="carousel-track">
+
+      <div class="foto-card">
+        <img src="img/FB_IMG_17545814665740123.jpg">
+        <div class="legenda">Primeiros Passos</div>
+      </div>
+
+      <div class="foto-card">
+        <img src="img/FB_IMG_17475927193117667.jpg">
+        <div class="legenda">Inspiração</div>
+      </div>
+
+      <div class="foto-card">
+        <img src="img/FB_IMG_17537720213448746.jpg">
+        <div class="legenda">Trabalho e Foco</div>
+      </div>
+
+      <div class="foto-card">
+        <img src="img/FB_IMG_17542047630953637.jpg">
+        <div class="legenda">Sonhos e Objetivos</div>
+      </div>
+
+      <div class="foto-card">
+        <img src="img/IMG-20250925-WA0006.jpg">
+        <div class="legenda">Crescimento</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="midia">
+  <h2>Mídia</h2>
+
+  <video controls width="600" style="max-width:90%; border-radius:10px;">
+    <source src="./video html/Aula 01 Curso de HTML e CSS - Estrutura básica do HTML - Aula 1.mkv" type="">
+    Seu navegador não consegue reproduzir este vídeo.
+  </video>
+
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+
+  <a href="Curiculo.htm" target="_blank" class="btn-cv">
+    Abrir meu CV
+  </a>
+
+</section>
+
+<section id="contactos">
+  <h2>Contactos</h2>
+  <p>☎ +258 857765687</p>
+  <p>☎ +258 875043109</p>
+  <p>☎ +258 835356521</p>
+</section>
+
+<section id="redes">
+  <h2>Minhas Redes Sociais</h2>
+  <div class="redes-sociais">
+
+    <a href="https://wa.me/258857765687" target="_blank">
+      <img src="/img/whatsapp icon.jpg" class="icon-img" alt="WhatsApp">
+    </a>
+
+    <a href="https://instagram.com/elisioluisribe" target="_blank">
+      <img src="/img/Intagram icon.jpg" class="icon-img" alt="Instagram">
+    </a>
+
+    <a href="https://facebook.com/elisioluis.ribe" target="_blank">
+      <img src="/img/Faicbuk icon.jpg" class="icon-img" alt="Facebook">
+    </a>
+
+    <a href="mailto:elisioluisribe8577@gmail.com" target="_blank">
+      <img src="/img/ChatGPT Image Nov 15, 2025, 05_19_59 PM.jpg" class="icon-img" alt="Email">
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  © 2025 <b>Elisio Luis Ribe</b> — <i>elisioluisribe8577@gmail.com</i>
+</footer>
+
+<script>
+document.querySelector(".menu-btn").addEventListener("click", () => {
+  document.querySelector("nav ul").classList.toggle("open");
+});
+</script>
+
+</body>
+</html>
